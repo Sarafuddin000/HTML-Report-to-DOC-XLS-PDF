@@ -1,6 +1,6 @@
-I have a HTML Report in Oracle apex. Now i need to export the that HTML report into Microsoft Word Document. To achieve this functionality you need to add some JavaScript functions in Apex page.
+--I have a HTML Report in Oracle apex. Now i need to export the that HTML report into Microsoft Word Document. To achieve this functionality you need to add some JavaScript functions in Apex page.
 
-Firstly, Write HTML Report using Table, try to use les div as possible for this purpose. Use Div ID For region to be PRINT and table ID to be export as document.
+--Firstly, Write HTML Report using Table, try to use les div as possible for this purpose. Use Div ID For region to be PRINT and table ID to be export as document.
 
     begin
         htp.p('
@@ -15,10 +15,11 @@ Firstly, Write HTML Report using Table, try to use les div as possible for this 
                 for xxx in (........................
 
 
-2. Use "jobCard" as Region's static ID
+--2. Use "jobCard" as Region's static ID
 
-3. Add page level inline CSS as required
-          .page{
+--3. Add page level inline CSS as required
+          
+        .page{
              size:  8.3in 11.7in ;
           
           }
@@ -42,7 +43,7 @@ Firstly, Write HTML Report using Table, try to use les div as possible for this 
               font-size: 9pt;
           }
 
-4. For PRINT feature write function in Page level function and Global variable section
+--4. For PRINT feature write function in Page level function and Global variable section
           function printdiv(id)
           			{
           			var headstr = "<html><head><title></title></head><body>";
@@ -55,7 +56,7 @@ Firstly, Write HTML Report using Table, try to use les div as possible for this 
           			return false;
           			}
 
-5. For export as DOC  feature write function in Page level function and Global variable section
+--5. For export as DOC  feature write function in Page level function and Global variable section
             function Export2Word( filename ){
                 var preHtml = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
                 var postHtml = "</body></html>";
@@ -92,7 +93,7 @@ Firstly, Write HTML Report using Table, try to use les div as possible for this 
                 document.body.removeChild(downloadLink);
             }
 
-6. For export as XLSX  feature write function in Page level function and Global variable section
+--6. For export as XLSX  feature write function in Page level function and Global variable section
 
             
           function Export2Excel(filename) {
@@ -132,7 +133,7 @@ Firstly, Write HTML Report using Table, try to use les div as possible for this 
           }
 
 
-7.  Now create button for PRINT, DOCX, XLSX and use Execute Javascript code for respective purpose as below:
+--7.  Now create button for PRINT, DOCX, XLSX and use Execute Javascript code for respective purpose as below:
         PRINT    :   printdiv('source')
         DOCS     :   Export2Word('jobCard')
         XLSX     :   Export2Excel('jobCard')
