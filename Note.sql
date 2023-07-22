@@ -137,3 +137,5 @@
         PRINT    :   printdiv('source')
         DOCS     :   Export2Word('jobCard')
         XLSX     :   Export2Excel('jobCard')
+
+--8.  Great, Now you can export or print your html report directly and modify after download.
